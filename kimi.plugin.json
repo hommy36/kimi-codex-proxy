@@ -1,0 +1,18 @@
+{
+  "name": "codex-proxy",
+  "version": "0.1.0",
+  "description": "在 Kimi Code 中使用 ChatGPT/Codex 订阅额度：封装本地 CLIProxyAPI OAuth 代理的登录、自启与排障",
+  "commands": "./commands/",
+  "skills": "./skills/",
+  "hooks": [
+    {
+      "event": "SessionStart",
+      "command": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/ensure-proxy.ps1",
+      "timeout": 15
+    }
+  ],
+  "interface": {
+    "displayName": "Codex Proxy",
+    "shortDescription": "ChatGPT/Codex 订阅额度接入（本地 OAuth 代理）"
+  }
+}
