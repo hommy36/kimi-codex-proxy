@@ -37,7 +37,9 @@ capabilities = [ "thinking", "image_in", "tool_use" ]
 
 5. TUI 里 `/model` 切到 `codex/...` 即可使用
 
-> 注意：插件钩子里的代理路径目前按作者本机路径写死（`scripts/ensure-proxy.ps1` 顶部的 `$dir`），在其他机器使用请改成自己的安装路径。
+此插件目前仅支持 Windows。代理安装在其他目录时，请在启动 Kimi Code 前设置环境变量 `KIMI_CODEX_PROXY_DIR` 为包含 `cli-proxy-api.exe` 和 `config.yaml` 的绝对路径，并重启 Kimi Code。未设置时沿用旧版默认目录 `D:/AI/AI_program/Kimicode_WebUI_to_Desktop/tools/cliproxyapi/`，以保持现有安装可用；登录、状态命令和自启钩子使用同一个目录约定。若修改代理端口，还需同步修改 `scripts/ensure-proxy.ps1` 和两个命令中的 `8317`。
+
+从本地源码修改插件后，需要重新安装该插件，再运行 `/reload` 或开启新会话；已安装的托管副本不会随源码自动更新。
 
 ## 风险声明
 
